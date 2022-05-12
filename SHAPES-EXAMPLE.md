@@ -143,7 +143,7 @@ If you still don't get a valid shape then there are some things you can try. Rem
 * Use `approov metrics` to see [Live Metrics](https://approov.io/docs/latest/approov-usage-documentation/#live-metrics) of the cause of failure.
 * Inspect any exceptions for additional information
 
-## SHAPES APP WITH SECRET PROTECTION
+## SHAPES APP WITH SECRETS PROTECTION
 
 This section provides an illustration of an alternative option for Approov protection if you are not able to modify the backend to add an Approov Token check. We continue to use `https://shapes.approov.io/v1/shapes/` that simply checks for an API key, so please change back the code so it points to `https://shapes.approov.io/v1/shapes/` in ViewController.swift at lines 115.
 
@@ -157,7 +157,7 @@ The `apiSecretKey` variable also needs to be changed as follows, removing the ac
 
 ```swift
 // let apiSecretKey = "yXClypapWNHIifHUWmBIyPFAm"
-// *** UNCOMMENT THE LINE BELOW FOR APPROOV SECRET PROTECTION (and comment the line above) ***
+// *** UNCOMMENT THE LINE BELOW FOR APPROOV SECRETS PROTECTION (and comment the line above) ***
 let apiSecretKey = "shapes_api_key_placeholder"
 ```
 
@@ -180,7 +180,7 @@ approov secstrings -addKey shapes_api_key_placeholder -predefinedValue yXClypapW
 Next we need to inform Approov that it needs to substitute the placeholder value for the real API key on the `Api-Key` header. Find line 44 and uncomment it as shown:
 
 ```swift
-// *** UNCOMMENT THE LINE BELOW FOR APPROOV SECRET PROTECTION ***
+// *** UNCOMMENT THE LINE BELOW FOR APPROOV SECRETS PROTECTION ***
 ApproovService.addSubstitutionHeader(header: "Api-Key", prefix: nil)
 ```
 

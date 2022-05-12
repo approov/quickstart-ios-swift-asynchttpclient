@@ -33,14 +33,14 @@ class ViewController: UIViewController {
     // API key for https://shapes.approov.io/v1/shapes and https://shapes.approov.io/v3/shapes
     let apiKeyHeaderName = "Api-Key"
     let apiSecretKey = "yXClypapWNHIifHUWmBIyPFAm"
-    // *** UNCOMMENT THE LINE BELOW FOR APPROOV SECRET PROTECTION (and comment the line above) ***
+    // *** UNCOMMENT THE LINE BELOW FOR APPROOV SECRETS PROTECTION (and comment the line above) ***
     // let apiSecretKey = "shapes_api_key_placeholder"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // *** UNCOMMENT THE LINE BELOW FOR APPROOV ***
         // try! ApproovService.initialize(config: "<enter-your-config-string-here>")
-        // *** UNCOMMENT THE LINE BELOW FOR APPROOV SECRET PROTECTION ***
+        // *** UNCOMMENT THE LINE BELOW FOR APPROOV SECRETS PROTECTION ***
         // ApproovService.addSubstitutionHeader(header: apiKeyHeaderName, prefix: nil)
     }
 
