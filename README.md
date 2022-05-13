@@ -38,7 +38,7 @@ The `ApproovService` functions may throw specific errors to provide additional i
 * `initializationFailure` the ApproovService failed to be initialized
 
 ## CHECKING IT WORKS
-Initially you won't have set which API domains to protect, so the ApproovService implementation will not add anything. It will have called Approov though and made contact with the Approov cloud service. You will see logging from Approov saying `UNKNOWN_URL`.
+Initially you won't have set which API domains to protect, so the ApproovService implementation will not add anything. It will have called Approov though and made contact with the Approov cloud service. You will see logging from Approov saying `unknown URL`.
 
 Your Approov onboarding email should contain a link allowing you to access [Live Metrics Graphs](https://approov.io/docs/latest/approov-usage-documentation/#metrics-graphs). After you've run your app with Approov integration you should be able to see the results in the live metrics within a minute or so. At this stage you could even release your app to get details of your app population and the attributes of the devices they are running on.
 
@@ -52,11 +52,4 @@ To actually protect your APIs there are some further steps. Approov provides two
 Note that it is possible to use both approaches side-by-side in the same app, in case your app uses a mixture of 1st and 3rd party APIs.
 
 ## BITCODE SUPPORT
-
-[Bitcode](https://approov.io/docs/latest/approov-usage-documentation/#bitcode-mode-management) is supported by Approov but requires a command line option to be specified when registering apps.
-
-```
-approov registration -add YourApp.ipa -bitcode
-```
-
 In order to use a bitcode enabled Approov service, you can still use the swift package repository at `https://github.com/approov/approov-service-ios-swift-asynchttpclient.git` but append the `-bitcode` suffix to the required SDK version, i.e. you could use `3.0.0-bitcode` as a version in the Swift PM window.
