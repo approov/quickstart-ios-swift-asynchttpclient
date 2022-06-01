@@ -93,7 +93,7 @@ approov sdk -getConfigString
 ```
 
 The `ApproovAsyncHTTPClient` class automatically fetches an Approov token and adds it in the `Approov-Token` header. It also applies pinning for the connection to ensure that no Man-in-the-Middle can eavesdrop on any communication being made.
-Lastly, make sure we are using the Approov protected endpoint for the shapes server. Find lines 115-117 in the `checkShapeAsyncAwait` function and change them as shown below to point to `v3/shapes`:
+Lastly, make sure we are using the Approov protected endpoint for the shapes server. Find lines 116-118 in the `checkShapeAsyncAwait` function and change them as shown below to point to `v3/shapes`:
 
 ```swift
 // let shapesURL = URL(string: "https://shapes.approov.io/v1/shapes")!
@@ -145,7 +145,7 @@ If you still don't get a valid shape then there are some things you can try. Rem
 
 ## SHAPES APP WITH SECRETS PROTECTION
 
-This section provides an illustration of an alternative option for Approov protection if you are not able to modify the backend to add an Approov Token check. We continue to use `https://shapes.approov.io/v1/shapes/` that simply checks for an API key, so please change back the code so it points to `https://shapes.approov.io/v1/shapes/` in ViewController.swift at lines 115.
+This section provides an illustration of an alternative option for Approov protection if you are not able to modify the backend to add an Approov Token check. We continue to use `https://shapes.approov.io/v1/shapes/` that simply checks for an API key, so please change back the code so it points to `https://shapes.approov.io/v1/shapes/` in ViewController.swift at lines 116.
 
 ```swift
 let shapesURL = URL(string: "https://shapes.approov.io/v1/shapes")!

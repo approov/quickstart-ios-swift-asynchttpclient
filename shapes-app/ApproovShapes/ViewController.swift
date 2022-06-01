@@ -36,6 +36,11 @@ class ViewController: UIViewController {
     // *** UNCOMMENT THE LINE BELOW FOR APPROOV SECRETS PROTECTION (and comment the line above) ***
     // let apiSecretKey = "shapes_api_key_placeholder"
 
+    deinit {
+        // Make sure the http client is shut down when we're done with it.
+        httpClient.shutdown({error in /* ignore any errors as we are shutting down the view */})
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // *** UNCOMMENT THE LINE BELOW FOR APPROOV ***
@@ -44,10 +49,6 @@ class ViewController: UIViewController {
         // ApproovService.addSubstitutionHeader(header: apiKeyHeaderName, prefix: nil)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     /*
      * Check unprotected hello endpoint
      */
