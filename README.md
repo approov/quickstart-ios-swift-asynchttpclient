@@ -51,5 +51,7 @@ To actually protect your APIs there are some further steps. Approov provides two
 
 Note that it is possible to use both approaches side-by-side in the same app, in case your app uses a mixture of 1st and 3rd party APIs.
 
+See [REFERENCE](https://github.com/approov/quickstart-ios-swift-asynchttpclient/blob/master/REFERENCE.md) for a complete list of all of the `ApproovService` methods.
+
 ## BITCODE SUPPORT
-In order to use a bitcode enabled Approov service, you can still use the swift package repository at `https://github.com/approov/approov-service-ios-swift-asynchttpclient.git` but append the `-bitcode` suffix to the required SDK version, i.e. you could use `3.0.0-bitcode` as a version in the Swift PM window.
+In order to use a bitcode enabled Approov service, you can still use the swift package repository at `https://github.com/approov/approov-service-ios-swift-asynchttpclient.git` but append the `-bitcode` suffix to the required SDK version, i.e. you could use `3.0.1-bitcode` as a version in the Swift Package Manager window.

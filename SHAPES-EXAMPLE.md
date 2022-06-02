@@ -23,7 +23,7 @@ Once the application is running you will see two buttons:
     <img src="readme-images/app-startup.png" width="256" title="Shapes App Startup">
 </p>
 
-Click on the `Hello` button and you should see this:
+Press the `Hello` button and you should see this:
 
 <p>
     <img src="readme-images/hello-okay.png" width="256" title="Hello Okay">
@@ -39,7 +39,7 @@ This contacts `https://shapes.approov.io/v1/shapes` to get the name of a random 
 
 The subsequent steps of this guide show you how to provide better protection, either by using an Approov token or by migrating the API key to become an Approov managed secret.
 
-## ADD THE APPROOV ASYNC HTTP CLIENT DEPENDENCY
+## ADD THE APPROOV SERVICE DEPENDENCY
 
 First you need to remove the existing dependency on `AsyncHTTPClient` from the project because the `ApproovAsyncHTTPClient` package already contains a dependency to a copy (fork) of the original `AsyncHTTPClient` package that has been modified to allow setting a custom TLS pinning verifier. Select the `ApproovShapes` project in Xcode and then in `Package Dependencies` select `async-http-client`, click the &mdash; symbol below and confirm removal.
 
@@ -49,7 +49,7 @@ Get the latest Approov integration by using the `Swift Package Manager`. The rep
 
 ![Add Package Dependency](readme-images/add-package-repository.png)
 
-You will then have to select the relevant `ApproovAsyncHTTPClient` package version you wish to use; each version is identified by a tag, with the main branch usually pointing to the latest version. Select the `Exact Version` option and enter the package version, in this case `3.0.0`: Once you click `Add Package` the last screen will confirm the package product and target selection:
+You will then have to select the relevant `ApproovAsyncHTTPClient` package version you wish to use; each version is identified by a tag, with the main branch usually pointing to the latest version. Select the `Exact Version` option and enter the package version, in this case `3.0.1`. Once you click `Add Package` the last screen will confirm the package product and target selection:
 
 ![Add Package Dependency Confirmation](readme-images/add-package-confirm.png)
 
@@ -103,7 +103,7 @@ let shapesURL = URL(string: "https://shapes.approov.io/v3/shapes")!
 
 ## REGISTER YOUR APP WITH APPROOV
 
-In order for Approov to recognize the app as being valid it needs to be registered with the service. This requires building an `.ipa` file either using the `Archive` option of Xcode (this option will not be available if using the simulator). Make sure a `Any iOS Device` is selected as build destination. This ensures an `embedded.mobileprovision` is included in the application package which is a requirement for the `approov` command line tool. 
+In order for Approov to recognize the app as being valid it needs to be registered with the service. This requires building an `.ipa` file using the `Archive` option of Xcode (this option will not be available if using the simulator). Make sure `Any iOS Device` is selected as build destination. This ensures an `embedded.mobileprovision` is included in the application package which is a requirement for the `approov` command line tool.
 
 ![Target Device](readme-images/target-device.png)
 
@@ -136,16 +136,15 @@ This means that the app is getting a validly signed Approov token to present to 
 If you still don't get a valid shape then there are some things you can try. Remember this may be because the device you are using has some characteristics that cause rejection for the currently set [Security Policy](https://approov.io/docs/latest/approov-usage-documentation/#security-policies) on your account:
 
 * Ensure that the version of the app you are running is exactly the one you registered with Approov.
-* If you running the app from a debugger then valid tokens are not issued unless you have ensure your device [always passes](https://approov.io/docs/latest/approov-usage-documentation/#adding-a-device-security-policy).
+* If you are running the app from a debugger or simulator, then valid tokens are not issued unless you have ensured your device [always passes](https://approov.io/docs/latest/approov-usage-documentation/#adding-a-device-security-policy). As a shortcut, when you are first setting up, you can add a [device security policy](https://approov.io/docs/latest/approov-usage-documentation/#adding-a-device-security-policy) using the `latest` shortcut as discussed so that the `device ID` doesn't need to be extracted from the logs or an Approov token.
 * Look at the [`syslog`](https://developer.apple.com/documentation/os/logging) output from the device. Information about any Approov token fetched or an error is logged. You can easily [check](https://approov.io/docs/latest/approov-usage-documentation/#loggable-tokens) the validity.
-* You can use a debugger or simulator and get valid Approov tokens on a specific device by ensuring it [always passes](https://approov.io/docs/latest/approov-usage-documentation/#adding-a-device-security-policy). As a shortcut, when you are first setting up, you can add a [device security policy](https://approov.io/docs/latest/approov-usage-documentation/#adding-a-device-security-policy) using the `latest` shortcut as discussed so that the `device ID` doesn't need to be extracted from the logs or an Approov token.
 * Consider using an [Annotation Policy](https://approov.io/docs/latest/approov-usage-documentation/#annotation-policies) during development to directly see why the device is not being issued with a valid token.
 * Use `approov metrics` to see [Live Metrics](https://approov.io/docs/latest/approov-usage-documentation/#live-metrics) of the cause of failure.
 * Inspect any exceptions for additional information
 
 ## SHAPES APP WITH SECRETS PROTECTION
 
-This section provides an illustration of an alternative option for Approov protection if you are not able to modify the backend to add an Approov Token check. We continue to use `https://shapes.approov.io/v1/shapes/` that simply checks for an API key, so please change back the code so it points to `https://shapes.approov.io/v1/shapes/` in ViewController.swift at lines 116.
+This section provides an illustration of an alternative option for Approov protection if you are not able to modify the backend to add an Approov token check. We continue to use `https://shapes.approov.io/v1/shapes/` that simply checks for an API key, so please revert the changes to the code so it uses `https://shapes.approov.io/v1/shapes/` in ViewController.swift at line 116.
 
 ```swift
 let shapesURL = URL(string: "https://shapes.approov.io/v1/shapes")!
@@ -191,7 +190,8 @@ Build and run the app again to ensure that the `ApproovShapes.ipa` in the genera
 ```
 approov registration -add ApproovShapes.ipa
 ```
-Run the app again without making any changes to the app and press the `Get Shape` button. You should now see this (or another shape):
+
+Run the app again without making any changes to the app and press the `Shape` button. You should now see this (or another shape):
 
 <p>
     <img src="readme-images/shapes-good.png" width="256" title="Shapes Good">

@@ -143,7 +143,7 @@ Note that this method may make networking calls so should never be called from t
 This method is also useful for providing runtime secrets protection when the values are not passed on headers.  
 
 ### Prefetching
-If you wish to reduce the latency associated with substituting the first secret, then make this call immediately after creating `ApproovService`:
+If you wish to reduce the latency associated with substituting the first secret, then make this call immediately after initializing `ApproovService`:
 
 ```swift
 ApproovService.prefetch()
@@ -171,4 +171,4 @@ do {
 }
 ```
 
-> Note you should **NEVER** use this as the only form of protection in your app, this is simply to provide an early indication of failure to your users as a convenience. You must always also have secrets essential to the operation of your app, or access to backend API services, protected with Approov. This is because, although the Approov attestation itself is heavily secured, it may be possible for an attacker to bypass its result or prevent it being called at all. When the app is dependent on the secrets protected, it is not possible for them to be obtained at all without passing the attestation.
+> Note you should **NEVER** use this as the only form of protection in your app, this is simply to provide an early indication of failure to your users as a convenience. You must always also have secrets essential to the operation of your app, or access to backend API services, protected with Approov. This is because, although the Approov attestation itself is heavily secured, it may be possible for an attacker to bypass its result or prevent it being called at all.

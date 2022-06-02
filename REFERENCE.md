@@ -47,7 +47,7 @@ Adds an Approov token and substitutes header values as defined in `substitutionH
 If it is not currently possible to fetch an Approov token or secure strings, then ApproovError is thrown.
 
 ```swift
-    public static func updateRequest(url: URL, headers: HTTPHeaders) throws -> (URL, HTTPHeaders)
+public static func updateRequest(url: URL, headers: HTTPHeaders) throws -> (URL, HTTPHeaders)
 ```
 
 ## addSubstitutionHeader
