@@ -7,7 +7,7 @@ This quickstart provides the basic steps for integrating Approov into your app. 
 To follow this guide you should have received an onboarding email for a trial or paid Approov account.
 
 ## ADDING APPROOV SERVICE DEPENDENCY
-The Approov integration is available via the [`Swift Package Manager`](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app). This allows inclusion into a project by first removing the existing dependency on `AsyncHTTPClient` from the project and then adding a dependency on the `ApproovAsyncHTTPClient` package in Xcode through the `File -> AddPackages...` menu item or in the project's `Package Dependency` section:
+The Approov integration is available via the [`Swift Package Manager`](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app). This allows inclusion into a project by first removing the existing dependency on `AsyncHTTPClient` from the project and then adding a dependency on the `ApproovAsyncHTTPClient` package in Xcode through the `File -> AddPackages...` menu item or in the project's `Package Dependency` section. In the search box of the add packages dialog enter the url of the git repository `https://github.com/approov/approov-service-ios-swift-asynchttpclient.git`, then choose `Exact Version` and 3.0.1 or 3.0.1-bitcode.
 
 ![Add Package Dependency](readme-images/add-package-repository.png)
 
@@ -40,7 +40,7 @@ The `ApproovService` functions may throw specific errors to provide additional i
 ## CHECKING IT WORKS
 Initially you won't have set which API domains to protect, so the ApproovService implementation will not add anything. It will have called Approov though and made contact with the Approov cloud service. You will see logging from Approov saying `unknown URL`.
 
-Your Approov onboarding email should contain a link allowing you to access [Live Metrics Graphs](https://approov.io/docs/latest/approov-usage-documentation/#metrics-graphs). After you've run your app with Approov integration you should be able to see the results in the live metrics within a minute or so. At this stage you could even release your app to get details of your app population and the attributes of the devices they are running on.
+Your Approov onboarding email should contain a link allowing you to access [Live Metrics Graphs](https://approov.io/docs/latest/approov-usage-documentation/#metrics-graphs). After you have run your app with Approov integration you should be able to see the results in the live metrics within a minute or so. At this stage you could even release your app to get details of your app population and the attributes of the devices they are running on.
 
 ## NEXT STEPS
 To actually protect your APIs there are some further steps. Approov provides two different options for protection:
@@ -51,5 +51,7 @@ To actually protect your APIs there are some further steps. Approov provides two
 
 Note that it is possible to use both approaches side-by-side in the same app, in case your app uses a mixture of 1st and 3rd party APIs.
 
+See [REFERENCE](https://github.com/approov/quickstart-ios-swift-asynchttpclient/blob/master/REFERENCE.md) for a complete list of all of the `ApproovService` methods.
+
 ## BITCODE SUPPORT
-In order to use a bitcode enabled Approov service, you can still use the swift package repository at `https://github.com/approov/approov-service-ios-swift-asynchttpclient.git` but append the `-bitcode` suffix to the required SDK version, i.e. you could use `3.0.0-bitcode` as a version in the Swift PM window.
+In order to use a bitcode enabled Approov service, you can still use the swift package repository at `https://github.com/approov/approov-service-ios-swift-asynchttpclient.git` but append the `-bitcode` suffix to the required SDK version, i.e. you could use `3.0.1-bitcode` as a version in the Swift Package Manager window.

@@ -1,7 +1,7 @@
 # Secrets Protection
 You should use this option if you wish to protect access to 3rd party or managed APIs where you are not able to add an Approov token check to the backend. This allows client secrets, or API keys, used for access to be protected with Approov. Rather than building secrets into an app where they might be reverse engineered, they are only provided at runtime by Approov for apps that pass Approov attestation. This substantially improves your protection and prevents these secrets being abused by attackers. Where you are able to modify the backend we recommend you use API Protection for further enhanced flexibility and security.
 
-This quickstart provides a straightforward implementation if the secret is currently supplied in a request header to the API. The `ApproovAsyncHTTPClient` class is able to automatically substitute in the secret for headers, but only if the app has passed the Approov attestation checks. If the app fails its checks then you can add a custom [rejection](#handling-rejections) handler.
+This quickstart provides a straightforward implementation if the secret is currently supplied in a request header to the API. The `ApproovAsyncHTTPClient` class is able to automatically rewrite headers or query parameters as the requests are being made to substitute in the secret, but only if the app has passed the Approov attestation checks. If the app fails its checks then you can add a custom [rejection](#handling-rejections) handler.
 
 These additional steps require access to the [Approov CLI](https://approov.io/docs/latest/approov-cli-tool-reference/), please follow the [Installation](https://approov.io/docs/latest/approov-installation/) instructions.
 
@@ -45,6 +45,7 @@ You must inform Approov that it should substitute `your-placeholder` with `your-
 ```
 approov secstrings -addKey your-placeholder -predefinedValue your-secret
 ```
+
 > Note that this command also requires an [admin role](https://approov.io/docs/latest/approov-usage-documentation/#account-access-roles).
 
 You can add up to 16 different secret values to be substituted in this way.
@@ -60,6 +61,14 @@ With this in place, network calls using `ApproovAsyncHTTPClient` will replace th
 You can see a [worked example](https://github.com/approov/quickstart-ios-swift-asynchttpclient/blob/main/SHAPES-EXAMPLE.md#shapes-app-with-secrets-protection) for the Shapes app.
 
 Since earlier released versions of the app may have already leaked `your-secret`, you may wish to refresh the secret at some later point when any older version of the app is no longer in use. You can of course do this update over-the-air using Approov without any need to modify the app.
+
+If the secret value is provided as a parameter in a URL query string with the name `your-param` then it is necessary to notify the `ApproovService` that the query parameter is subject to substitution. You do this by making the call once, after initialization:
+
+```swift
+ApproovService.addSubstitutionQueryParam(key: "your-param")
+```
+
+After this the `ApproovAsyncHTTPClient` should transform any instance of a URL such as `https://your.domain/endpoint?your-param=your-placeholder` into `https://your.domain/endpoint?your-param=your-secret`.
 
 ## REGISTERING APPS
 In order for Approov to recognize the app as being valid it needs to be registered with the service. Change to the directory containing your app and then register it with Approov:
@@ -145,7 +154,7 @@ Note that this method may make networking calls so should never be called from t
 This method is also useful for providing runtime secrets protection when the values are not passed on headers.  
 
 ### Prefetching
-If you wish to reduce the latency associated with substituting the first secret, then make this call immediately after creating `ApproovService`:
+If you wish to reduce the latency associated with substituting the first secret, then make this call immediately after initializing `ApproovService`:
 
 ```swift
 ApproovService.prefetch()
@@ -173,4 +182,4 @@ do {
 }
 ```
 
-> Note you should **NEVER** use this as the only form of protection in your app, this is simply to provide an early indication of failure to your users as a convenience. You must always also have secrets essential to the operation of your app, or access to backend API services, protected with Approov. This is because, although the Approov attestation itself is heavily secured, it may be possible for an attacker to bypass its result or prevent it being called at all. When the app is dependent on the secrets protected, it is not possible for them to be obtained at all without passing the attestation.
+> Note you should **NEVER** use this as the only form of protection in your app, this is simply to provide an early indication of failure to your users as a convenience. You must always also have secrets essential to the operation of your app, or access to backend API services, protected with Approov. This is because, although the Approov attestation itself is heavily secured, it may be possible for an attacker to bypass its result or prevent it being called at all.

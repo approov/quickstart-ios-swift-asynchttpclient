@@ -36,6 +36,11 @@ class ViewController: UIViewController {
     // *** UNCOMMENT THE LINE BELOW FOR APPROOV SECRETS PROTECTION (and comment the line above) ***
     // let apiSecretKey = "shapes_api_key_placeholder"
 
+    deinit {
+        // Make sure the http client is shut down when we're done with it.
+        httpClient.shutdown({error in /* ignore any errors as we are shutting down the view */})
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // *** UNCOMMENT THE LINE BELOW FOR APPROOV ***
@@ -44,10 +49,6 @@ class ViewController: UIViewController {
         // ApproovService.addSubstitutionHeader(header: apiKeyHeaderName, prefix: nil)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     /*
      * Check unprotected hello endpoint
      */
@@ -113,7 +114,7 @@ class ViewController: UIViewController {
         Task() {
             // URL for shapes API
             let shapesURL = URL(string: "https://shapes.approov.io/v1/shapes")!
-            // *** UNCOMMENT THE LINE BELOW FOR APPROOV (and comment the line above) ***
+            // *** UNCOMMENT THE LINE BELOW FOR APPROOV API PROTECTION (and comment the line above) ***
             // let shapesURL = URL(string: "https://shapes.approov.io/v3/shapes")!
 
             // Display busy screen
@@ -183,7 +184,7 @@ class ViewController: UIViewController {
     @IBAction func checkShapeEventLoopFuture() {
         // URL for shapes API
         let shapesURL = URL(string: "https://shapes.approov.io/v1/shapes")!
-        // *** UNCOMMENT THE LINE BELOW FOR APPROOV (and comment the line above) ***
+        // *** UNCOMMENT THE LINE BELOW FOR APPROOV API PROTECTION (and comment the line above) ***
         // let shapesURL = URL(string: "https://shapes.approov.io/v3/shapes")!
 
         // Display busy screen

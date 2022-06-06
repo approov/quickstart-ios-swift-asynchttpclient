@@ -57,7 +57,7 @@ In this case the value of the `Authorization` header holds the token value to be
 If you wish to reduce the latency associated with fetching the first Approov token, then make this call immediately after initializing `ApproovService`:
 
 ```swift
-ApproovService.prefetch();
+ApproovService.prefetch()
 ```
 
 This initiates the process of fetching an Approov token as a background task, so that a cached token is available immediately when subsequently needed, or at least the fetch time is reduced. Note that there is no point in performing a prefetch if you are using token binding.
