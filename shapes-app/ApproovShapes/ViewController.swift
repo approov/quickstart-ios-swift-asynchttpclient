@@ -114,7 +114,7 @@ class ViewController: UIViewController {
         Task() {
             // URL for shapes API
             let shapesURL = URL(string: "https://shapes.approov.io/v1/shapes")!
-            // *** UNCOMMENT THE LINE BELOW FOR APPROOV (and comment the line above) ***
+            // *** UNCOMMENT THE LINE BELOW FOR APPROOV API PROTECTION (and comment the line above) ***
             // let shapesURL = URL(string: "https://shapes.approov.io/v3/shapes")!
 
             // Display busy screen
@@ -184,7 +184,7 @@ class ViewController: UIViewController {
     @IBAction func checkShapeEventLoopFuture() {
         // URL for shapes API
         let shapesURL = URL(string: "https://shapes.approov.io/v1/shapes")!
-        // *** UNCOMMENT THE LINE BELOW FOR APPROOV (and comment the line above) ***
+        // *** UNCOMMENT THE LINE BELOW FOR APPROOV API PROTECTION (and comment the line above) ***
         // let shapesURL = URL(string: "https://shapes.approov.io/v3/shapes")!
 
         // Display busy screen

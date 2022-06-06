@@ -97,7 +97,7 @@ Lastly, make sure we are using the Approov protected endpoint for the shapes ser
 
 ```swift
 // let shapesURL = URL(string: "https://shapes.approov.io/v1/shapes")!
-// *** UNCOMMENT THE LINE BELOW FOR APPROOV (and comment the line above) ***
+// *** UNCOMMENT THE LINE BELOW FOR APPROOV API PROTECTION (and comment the line above) ***
 let shapesURL = URL(string: "https://shapes.approov.io/v3/shapes")!
 ```
 
@@ -148,7 +148,7 @@ This section provides an illustration of an alternative option for Approov prote
 
 ```swift
 let shapesURL = URL(string: "https://shapes.approov.io/v1/shapes")!
-// *** UNCOMMENT THE LINE BELOW FOR APPROOV (and comment the line above) ***
+// *** UNCOMMENT THE LINE BELOW FOR APPROOV API PROTECTION (and comment the line above) ***
 // let shapesURL = URL(string: "https://shapes.approov.io/v3/shapes")!
 ```
 
