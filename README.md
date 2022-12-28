@@ -9,7 +9,7 @@ To follow this guide you should have received an onboarding email for a trial or
 Note that the minimum requirement is iOS 10. You cannot use Approov in apps that support iOS versions older than this.
 
 ## ADDING APPROOV SERVICE DEPENDENCY
-The Approov integration is available via the [`Swift Package Manager`](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app). This allows inclusion into a project by first removing the existing dependency on `AsyncHTTPClient` from the project and then adding a dependency on the `ApproovAsyncHTTPClient` package in Xcode through the `File -> AddPackages...` menu item or in the project's `Package Dependency` section. In the search box of the add packages dialog enter the url of the git repository `https://github.com/approov/approov-service-ios-swift-asynchttpclient.git`, then choose `Exact Version` and 3.0.1 or 3.0.1-bitcode.
+The Approov integration is available via the [`Swift Package Manager`](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app). This allows inclusion into a project by first removing the existing dependency on `AsyncHTTPClient` from the project and then adding a dependency on the `ApproovAsyncHTTPClient` package in Xcode through the `File -> AddPackages...` menu item or in the project's `Package Dependency` section. In the search box of the add packages dialog enter the url of the git repository `https://github.com/approov/approov-service-ios-swift-asynchttpclient.git`, then choose `Exact Version` and `3.1.0` or `3.1.0-bitcode`.
 
 ![Add Package Dependency](readme-images/add-package-repository.png)
 
@@ -56,5 +56,6 @@ Note that it is possible to use both approaches side-by-side in the same app, in
 See [REFERENCE](https://github.com/approov/quickstart-ios-swift-asynchttpclient/blob/master/REFERENCE.md) for a complete list of all of the `ApproovService` methods.
 
 ## BITCODE SUPPORT
-In order to use a bitcode enabled Approov service, you can still use the swift package repository at `https://github.com/approov/approov-service-ios-swift-asynchttpclient.git` but append the `-bitcode` suffix to the required SDK version, i.e. you could use `3.0.1-bitcode` as a version in the Swift Package Manager window.
+In order to use a bitcode enabled Approov service, you can still use the swift package repository at `https://github.com/approov/approov-service-ios-swift-asynchttpclient.git` but append the `-bitcode` suffix to the required SDK version, i.e. you could use `3.1.0-bitcode` as a version in the Swift Package Manager window.
+
 Please Note: Bitcode will become obsolete in the near future, which unfortunately affects Xcode version 14. If you wish to use a swift package as source and build bitcode, you must use an `Xcode 13` or earlier. 
