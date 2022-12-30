@@ -56,6 +56,6 @@ Note that it is possible to use both approaches side-by-side in the same app, in
 See [REFERENCE](https://github.com/approov/quickstart-ios-swift-asynchttpclient/blob/master/REFERENCE.md) for a complete list of all of the `ApproovService` methods.
 
 ## BITCODE SUPPORT
-In order to use a bitcode enabled Approov service, you can still use the swift package repository at `https://github.com/approov/approov-service-ios-swift-asynchttpclient.git` but append the `-bitcode` suffix to the required SDK version, i.e. you could use `3.1.1-bitcode` as a version in the Swift Package Manager window.
+In order to use a bitcode enabled Approov service, you can still use the swift package repository at `https://github.com/approov/approov-service-ios-swift-asynchttpclient.git` but append the `-bitcode` suffix to the required SDK version, i.e. you could use `3.1.2-bitcode` as a version in the Swift Package Manager window.
 
 Please Note: Bitcode will become obsolete in the near future, which unfortunately affects Xcode version 14. If you wish to use a swift package as source and build bitcode, you must use an `Xcode 13` or earlier. 
