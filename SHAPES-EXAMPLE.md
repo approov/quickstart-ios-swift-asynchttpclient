@@ -49,7 +49,7 @@ Get the latest Approov integration by using the `Swift Package Manager`. The rep
 
 ![Add Package Dependency](readme-images/add-package-repository.png)
 
-You will then have to select the relevant `ApproovAsyncHTTPClient` package version you wish to use; each version is identified by a tag, with the main branch usually pointing to the latest version. Select the `Exact Version` option and enter the package version, in this case `3.1.0`. Once you click `Add Package` the last screen will confirm the package product and target selection:
+You will then have to select the relevant `ApproovAsyncHTTPClient` package version you wish to use; each version is identified by a tag, with the main branch usually pointing to the latest version. Select the `Exact Version` option and this selects the package version. Once you click `Add Package` the last screen will confirm the package product and target selection:
 
 ![Add Package Dependency Confirmation](readme-images/add-package-confirm.png)
 
