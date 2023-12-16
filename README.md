@@ -2,7 +2,7 @@
 
 This quickstart is written specifically for native iOS apps that you wish to protect with Approov and that are written in Swift, making API calls using [`AsyncHTTPClient`](https://github.com/swift-server/async-http-client), an HTTP Client library built on top of SwiftNIO. If this is not your situation then please check if there is a more relevant quickstart guide available.
 
-This quickstart provides the basic steps for integrating Approov into your app. A more detailed step-by-step guide using a [Shapes App Example](https://github.com/approov/quickstart-ios-swift-asynchttpclient/blob/master/SHAPES-EXAMPLE.md) is also available.
+This page provides all the steps for integrating Approov into your app. Additionally, a step-by-step tutorial guide using our [Shapes App Example](https://github.com/approov/quickstart-ios-swift-asynchttpclient/blob/master/SHAPES-EXAMPLE.md) is also available.
 
 To follow this guide you should have received an onboarding email for a trial or paid Approov account.
 
@@ -55,7 +55,3 @@ Note that it is possible to use both approaches side-by-side in the same app.
 
 See [REFERENCE](https://github.com/approov/quickstart-ios-swift-asynchttpclient/blob/master/REFERENCE.md) for a complete list of all of the `ApproovService` methods.
 
-## BITCODE SUPPORT
-In order to use a bitcode enabled Approov service, you can still use the swift package repository at `https://github.com/approov/approov-service-ios-swift-asynchttpclient.git` but append the `-bitcode` suffix to the required SDK version, i.e. you could use `3.1.2-bitcode` as a version in the Swift Package Manager window.
-
-Please Note: Bitcode will become obsolete in the near future, which unfortunately affects Xcode version 14. If you wish to use a swift package as source and build bitcode, you must use an `Xcode 13` or earlier. 
