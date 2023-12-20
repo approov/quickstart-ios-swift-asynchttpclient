@@ -6,7 +6,7 @@ This page provides all the steps for integrating Approov into your app. Addition
 
 To follow this guide you should have received an onboarding email for a trial or paid Approov account.
 
-Note that the minimum requirement is iOS 10. You cannot use Approov in apps that support iOS versions older than this.
+Note that the minimum requirement is iOS 13. You cannot use Approov in apps that support iOS versions older than this.
 
 ## ADDING APPROOV SERVICE DEPENDENCY
 The Approov integration is available via the [`Swift Package Manager`](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app). This allows inclusion into a project by first removing the existing dependency on `AsyncHTTPClient` from the project and then adding a dependency on the `ApproovAsyncHTTPClient` package in Xcode through the `File -> AddPackages...` menu item or in the project's `Package Dependency` section. In the search box of the add packages dialog enter the url of the git repository `https://github.com/approov/approov-service-ios-swift-asynchttpclient.git`, then choose `Exact Version`.
