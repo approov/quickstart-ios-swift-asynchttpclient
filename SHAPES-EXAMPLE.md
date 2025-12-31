@@ -5,7 +5,7 @@ This quickstart is written specifically for native iOS apps that you wish to pro
 ## WHAT YOU WILL NEED
 * Access to a trial or paid Approov account
 * The `approov` command line tool [installed](https://approov.io/docs/latest/approov-installation/) with access to your account
-* [Xcode](https://developer.apple.com/xcode/) version 13 installed (version 13.3 is used in this guide)
+* [Xcode](https://developer.apple.com/xcode/) version 13 installed (version 16.4 is used in this guide)
 * The contents of this repo
 * An Apple mobile device with iOS 13 or higher
 
