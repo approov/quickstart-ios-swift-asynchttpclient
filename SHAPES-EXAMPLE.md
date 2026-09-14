@@ -7,7 +7,7 @@ This quickstart is written specifically for native iOS apps that you wish to pro
 * The `approov` command line tool [installed](https://approov.io/docs/latest/approov-installation/) with access to your account
 * [Xcode](https://developer.apple.com/xcode/) version 13 installed (version 16.4 is used in this guide)
 * The contents of this repo
-* An Apple mobile device with iOS 13 or higher
+* An Apple mobile device with iOS 15 or higher
 
 ## RUNNING THE SHAPES APP WITHOUT APPROOV
 
